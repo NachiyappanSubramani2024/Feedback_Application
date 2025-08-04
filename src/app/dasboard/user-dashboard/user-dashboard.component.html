@@ -1,0 +1,38 @@
+<form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()">
+  <h2>Feedback Form</h2>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Name</mat-label>
+    <input matInput formControlName="name" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" type="email" required />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Mobile</mat-label>
+    <input matInput formControlName="mobile" type="tel" required />
+  </mat-form-field>
+
+  <label>Rating</label>
+  <div class="stars">
+    <ng-container *ngFor="let star of stars">
+      <mat-icon
+        (click)="setRating(star)"
+        [class.filled]="star <= feedbackForm.get('rating')?.value">
+        {{ star <= feedbackForm.get('rating')?.value ? 'star' : 'star_border' }}
+      </mat-icon>
+    </ng-container>
+  </div>
+
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Review</mat-label>
+    <textarea matInput rows="4" formControlName="review"></textarea>
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit" [disabled]="feedbackForm.invalid">
+    Submit
+  </button>
+</form>
