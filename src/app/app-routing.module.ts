@@ -1,9 +1,9 @@
 // app-routing.module.ts
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+
 import { UserDashboardComponent } from './dasboard/user-dashboard/user-dashboard.component';
 import { AdminDashboardComponent } from './dasboard/admin-dashboard/admin-dashboard.component';
-
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   { path: 'user', component: UserDashboardComponent },
